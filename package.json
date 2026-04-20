@@ -1,0 +1,21 @@
+{
+  "name": "therapy-music",
+  "version": "1.0.0",
+  "description": "Api thérapie par la musique ",
+  "license": "ISC",
+  "author": "Denisa",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node --env-file=.env app.js",
+    "dev": "node --watch --env-file=.env app.js"
+  },
+  "dependencies": {
+    "argon2": "^0.44.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongodb": "^7.1.0",
+    "mongoose": "^9.3.0"
+  }
+}
