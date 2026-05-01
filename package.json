@@ -7,9 +7,9 @@
   "type": "commonjs",
   "main": "app.js",
   "scripts": {
-    "start": "node --env-file=.env app.js",
-    "dev": "node --watch --env-file=.env app.js"
-  },
+  "start": "node app.js",
+  "dev": "node --watch --env-file=.env app.js"
+},
   "dependencies": {
     "argon2": "^0.44.0",
     "cors": "^2.8.6",
