@@ -5,27 +5,24 @@ const cors = require('cors')
 const server = express();
 
 const { PORT, DB_CONNECTION } = process.env;
-server.use(cors())
+
+server.use(cors({
+  origin: [
+    'https://sound-of-you-delta.vercel.app',
+    'https://sound-of-you-git-main-denidenisas-projects.vercel.app'
+  ]
+}))
+
 server.use(express.json());
 
-// Connexion MongoDB
-server.use(async (req, res, next) => {
-    try {
-        await mongoose.connect(DB_CONNECTION);
-        console.log('💾 Successfully connected to the DB !');
-        next();
-    } catch(err) {
-        console.log(`❌ Connection Failed \n[Reason]\n ${err}`);
-        res.status(500).json({ 
-            statusCode: 500, 
-            message: 'Impossible de se connecter à la base de données' 
-        });
-    }
-});
+
+mongoose.connect(DB_CONNECTION)
+  .then(() => console.log('💾 Connecté à la base de données !'))
+  .catch(err => console.log(`❌ Connexion échouée : ${err}`));
 
 const router = require('./routes');
 server.use('/api', router);
 
 server.listen(PORT, () => {
-    console.log(`🚀 Express Server started on port ${PORT}`);
+    console.log(`🚀 Serveur démarré sur le port ${PORT}`);
 });
