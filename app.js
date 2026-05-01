@@ -7,10 +7,7 @@ const server = express();
 const { PORT, DB_CONNECTION } = process.env;
 
 server.use(cors({
-  origin: [
-    'https://sound-of-you-delta.vercel.app',
-    'https://sound-of-you-git-main-denidenisas-projects.vercel.app'
-  ]
+  origin: '*'
 }))
 
 server.use(express.json());
